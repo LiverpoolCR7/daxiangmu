@@ -16,7 +16,7 @@ function getUserInfo() {
         // },
         success: function (res) {
             if (res.status == 0) {
-                renderAvater(res.data)
+                renderAvatar(res.data)
             }
         },
         // complete: function (res) {
@@ -30,15 +30,17 @@ function getUserInfo() {
 
     })
 }
-function renderAvater(user) {
+function renderAvatar(user) {
     if (user.user_pic != null) {
-        $("text-avater").hide()
+
         $(".layui-nav-img").attr('src', user.user_pic).show()
+        $(".text-avatar").hide()
     } else {
+
         var name = user.nickname || user.username
         var first = name[0].toUpperCase()
         $("#welcome").html("欢迎" + "  " + name)
-        $(".text-avater").html(first)
+        $(".text-avatar").html(first)
     }
 }
 $(".tuichuBT").on('click', function () {
